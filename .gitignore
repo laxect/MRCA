@@ -1,0 +1,4 @@
+src/
+pkg/
+*/hyouka/
+*.pkg.tar.zst*

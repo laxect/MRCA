@@ -1,0 +1,15 @@
+pkgbase = hyouka-git
+	pkgdesc = manage blog post in cli
+	pkgver = r8.d2b56f7
+	pkgrel = 1
+	url = https://github.com/laxect/hyouka
+	arch = i686
+	arch = x86_64
+	license = GPLv3
+	makedepends = git
+	depends = cargo
+	source = git+https://github.com/laxect/hyouka.git
+	sha256sums = SKIP
+
+pkgname = hyouka-git
+
