@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for file in "/etc/profile" "${HOME}/.profile" "${HOME}/.zprofile" ; do
+    if [ -f "${file}" ] ; then
+        source "${file}"
+    fi
+done
+
+dbus-launch --exit-with-session sway

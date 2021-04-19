@@ -1,0 +1,16 @@
+# Maintainer: Gyara <laxect39@gmail.com>
+
+pkgname=sway-patched-launcher
+pkgver=1
+pkgrel=1
+pkgdesc="patched sway launcher to recv more env"
+depends=('sway')
+arch=('x86_64')
+license=('MIT')
+source=("sway-patched")
+sha256sums=('e404569e953ba68368c29fd7332b0ef66e34f81f534dd4520d3fbc95447f5926')
+
+package() {
+  cd "$srcdir/"
+  install -Dm755 "sway-patched" "$pkgdir/usr/bin/sway-patched"
+}
