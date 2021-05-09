@@ -2,7 +2,7 @@
 
 pkgname=hyouka-git
 _pkgname=hyouka
-pkgver=r8.d2b56f7
+pkgver=r11.a40dff8
 pkgrel=1
 pkgdesc="manage blog post in cli"
 url="https://github.com/laxect/hyouka"
@@ -26,5 +26,6 @@ build() {
 package() {
   cd "$srcdir/$_pkgname/"
   install -Dm755 "target/hyouka" "$pkgdir/usr/bin/hyouka"
+  install -Dm755 "_hyouka" "$pkgdir/usr/share/zsh/site-functions"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
