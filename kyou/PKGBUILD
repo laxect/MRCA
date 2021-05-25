@@ -1,0 +1,29 @@
+# Maintainer: Gyara <laxect39@gmail.com>
+
+pkgname=kyou-git
+_pkgname=kyou
+pkgver=r1
+pkgrel=1
+pkgdesc="waybar script"
+url="https://github.com/shimakaze-system/kyou"
+depends=('cargo')
+makedepends=('git')
+arch=('i686' 'x86_64')
+license=('MIT')
+source=("git+$url.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgname/"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$srcdir/$_pkgname/"
+  cargo build --release --out-dir=target -Z unstable-options
+}
+
+package() {
+  cd "$srcdir/$_pkgname/"
+  install -Dm755 "target/kyou" "$pkgdir/usr/bin/kyou"
+}
