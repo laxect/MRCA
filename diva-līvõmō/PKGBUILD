@@ -1,0 +1,31 @@
+# Maintainer: Gyara <laxect39@gmail.com>
+
+pkgname=diva-livomo-git
+_pkgname=diva-livomo
+pkgver=r1
+pkgrel=1
+pkgdesc="import annotations from multi reader"
+url="https://github.com/laxect/diva-livomo"
+depends=('cargo')
+makedepends=('git')
+arch=('i686' 'x86_64')
+license=('MIT')
+source=("git+$url.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgname/"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$srcdir/$_pkgname/"
+  cargo build --release --out-dir=target -Z unstable-options
+}
+
+package() {
+  cd "$srcdir/$_pkgname/"
+  install -Dm755 "target/dival" "$pkgdir/usr/bin/dival"
+  install -Dm755 "_dival" "$pkgdir/usr/share/zsh/site-functions/_dival"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
