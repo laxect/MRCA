@@ -20,7 +20,7 @@ pkgver() {
 
 build() {
   cd "$srcdir/$_pkgname/"
-  cargo build --release --out-dir=target -Z unstable-options
+  cargo +nightly build --release --out-dir=target -Z unstable-options
 }
 
 package() {
