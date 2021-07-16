@@ -8,6 +8,6 @@ for t in `fd --type=d`
 do
     cp ${t} /tmp/mrca/ -r
     cd /tmp/mrca/${t}
-    paru -U --localrepo=kagami --cachedir /tmp/paru  --cleanafter --sign --signdb
+    paru -U --localrepo=kagami --cachedir /tmp/paru --nochroot --cleanafter --sign --signdb
     cd ${working_dir}
 done
