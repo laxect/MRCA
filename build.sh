@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+set -euxo pipefail
 
 mkdir -p /tmp/mrca
 
