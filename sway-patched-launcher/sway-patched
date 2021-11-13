@@ -6,4 +6,6 @@ for file in "/etc/profile" "${HOME}/.profile" "${HOME}/.zprofile" ; do
     fi
 done
 
+export XDG_CURRENT_DESKTOP=sway
+
 dbus-launch --exit-with-session sway

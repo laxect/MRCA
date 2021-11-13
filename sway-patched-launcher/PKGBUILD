@@ -8,7 +8,7 @@ depends=('sway')
 arch=('x86_64')
 license=('MIT')
 source=("sway-patched")
-sha256sums=('e404569e953ba68368c29fd7332b0ef66e34f81f534dd4520d3fbc95447f5926')
+sha256sums=('aba50d65028fb28222db2a29352f880782e158fef49871242998ee41828f490e')
 
 package() {
   cd "$srcdir/"
