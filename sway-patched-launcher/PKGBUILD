@@ -1,14 +1,14 @@
 # Maintainer: Gyara <laxect39@gmail.com>
 
 pkgname=sway-patched-launcher
-pkgver=3
+pkgver=4
 pkgrel=1
 pkgdesc="patched sway launcher to recv more env"
 depends=('sway')
 arch=('x86_64')
 license=('MIT')
 source=("sway-patched")
-sha256sums=('b4bd2f8b17416124a3a7a1b47b3570aa36eca9547d2ebbbd0283d824ee74de7a')
+sha256sums=('81569cf537b606828f2aed1ab1ae0187592d5a4b4deb8c75fb5d75862723762b')
 
 package() {
   cd "$srcdir/"
