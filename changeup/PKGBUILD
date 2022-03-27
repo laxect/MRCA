@@ -1,0 +1,30 @@
+# Maintainer: Gyara <laxect39@gmail.com>
+
+pkgname=changeup-git
+_pkgname=changeup
+pkgver=r2
+pkgrel=1
+pkgdesc="My sway tools"
+url="https://git.sr.ht/~fubuki/changeup/"
+makedepends=('git' 'cargo')
+arch=('i686' 'x86_64')
+license=('MIT')
+source=("git+$url" "changeup.service")
+sha256sums=('SKIP'
+            'a919f6f9c40572a50e73fe8707089c8fbc684805d66c1c426951cd5019fd47cb')
+
+pkgver() {
+  cd "$_pkgname/"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$srcdir/$_pkgname/"
+  cargo +nightly build --release --out-dir=target -Z unstable-options
+}
+
+package() {
+  cd "$srcdir/$_pkgname/"
+  install -Dm755 "target/changeup" "$pkgdir/usr/bin/changeup"
+  install -Dm0644 "$srcdir/changeup.service" "$pkgdir/usr/lib/systemd/user/changeup.service"
+}
