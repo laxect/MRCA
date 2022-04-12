@@ -2,7 +2,7 @@
 
 pkgname=changeup-git
 _pkgname=changeup
-pkgver=r2
+pkgver=r12.6bd0b55
 pkgrel=1
 pkgdesc="My sway tools"
 url="https://git.sr.ht/~fubuki/changeup/"
@@ -20,11 +20,12 @@ pkgver() {
 
 build() {
   cd "$srcdir/$_pkgname/"
-  cargo +nightly build --release --out-dir=target -Z unstable-options
+  cargo +nightly build --bins --release --out-dir=target -Z unstable-options
 }
 
 package() {
   cd "$srcdir/$_pkgname/"
   install -Dm755 "target/changeup" "$pkgdir/usr/bin/changeup"
+  install -Dm755 "target/client" "$pkgdir/usr/bin/changeup-client"
   install -Dm0644 "$srcdir/changeup.service" "$pkgdir/usr/lib/systemd/user/changeup.service"
 }
