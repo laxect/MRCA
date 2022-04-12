@@ -9,9 +9,8 @@ url="https://git.sr.ht/~fubuki/changeup/"
 makedepends=('git' 'cargo')
 arch=('i686' 'x86_64')
 license=('MIT')
-source=("git+$url" "changeup.service")
-sha256sums=('SKIP'
-            'a919f6f9c40572a50e73fe8707089c8fbc684805d66c1c426951cd5019fd47cb')
+source=("git+$url")
+sha256sums=('SKIP')
 
 pkgver() {
   cd "$_pkgname/"
@@ -27,5 +26,6 @@ package() {
   cd "$srcdir/$_pkgname/"
   install -Dm755 "target/changeup" "$pkgdir/usr/bin/changeup"
   install -Dm755 "target/client" "$pkgdir/usr/bin/changeup-client"
-  install -Dm0644 "$srcdir/changeup.service" "$pkgdir/usr/lib/systemd/user/changeup.service"
+  install -Dm0644 "changeup.service" "$pkgdir/usr/lib/systemd/user/changeup.service"
+  install -Dm0644 "moe.gyara.changeup.service" "$pkgdir/usr/share/dbus-1/services/moe.gyara.changeup.service"
 }
