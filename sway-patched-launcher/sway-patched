@@ -1,5 +1,0 @@
-#!/bin/sh
-unset XCURSOR_PATH
-unset XCURSOR_SIZE
-export XDG_CURRENT_DESKTOP=sway
-dbus-launch --exit-with-session sway 2>~/.cache/sway/session-errors
