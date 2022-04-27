@@ -2,11 +2,12 @@
 
 pkgname=diva-livomo-git
 _pkgname=diva-livomo
-pkgver=r1
+pkgver=r28.118f051
 pkgrel=1
 pkgdesc="import annotations from multi reader"
 url="https://github.com/laxect/diva-livomo"
 makedepends=('git' 'cargo')
+depends=('libsecret' 'pinentry' 'org.freedesktop.secrets')
 arch=('i686' 'x86_64')
 license=('MIT')
 source=("git+$url.git")
